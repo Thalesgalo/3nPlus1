@@ -26,5 +26,6 @@
     "dotnet.inlayHints.enableInlayHintsForParameters": true,
     "csharp.inlayHints.enableInlayHintsForTypes": true,
     "gitlens.blame.format": "${id}-${agoOrDate|10} - ${author}",
-    "dotnet.server.useOmnisharp": true
+    "dotnet.server.useOmnisharp": true,
+    "dotnet.defaultSolution": "Thalesgalo/Projeto3nPlus1.sln"
 }
