@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 
 namespace ConsoleApp
 {
@@ -11,9 +12,9 @@ namespace ConsoleApp
             Console.Write("Informe o valor do numero para o teste:");
             n = int.Parse(Console.ReadLine());
 
-            Console.Write(calculos(n));
+            Console.Write(Calculos.NumeroDeCiclos(n));
 
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
     }
 }

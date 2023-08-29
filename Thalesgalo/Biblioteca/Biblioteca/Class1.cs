@@ -2,35 +2,25 @@
 {
     public class Calculos
     {
-        public int calulos(int n)
+        public static int NumeroDeCiclos(int n)
         {
             int cont = 0;
 
-            if (n == 1)
-            {
-                return 0;
-            }
-
-            while (n == 1)
+            do
             {
                 if (n % 2 == 0)
                 {
-                    cont = 3 * n + 1;
+                    n = n / 2;
                 }
-                else if (n % 2 - 1 == 0)
+                else
                 {
-                    cont = n/2;
+                    n = 3 * n + 1;
                 }
-                
-            }
+                cont++;
 
-            return cont;
+            }while (n != 1);
 
-
+            return cont + 1;
         }
-
-
-
-
     }
 }
