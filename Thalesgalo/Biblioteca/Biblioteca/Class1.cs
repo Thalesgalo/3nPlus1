@@ -1,4 +1,6 @@
-﻿namespace Biblioteca
+﻿using System.IO;
+
+namespace Biblioteca
 {
     public class Calculos
     {

@@ -1,10 +1,11 @@
 namespace Teste
 {
-    public class UnitTest1
+    public class Teste
     {
         [Fact]
         public void Test1()
         {
+
 
         }
     }
