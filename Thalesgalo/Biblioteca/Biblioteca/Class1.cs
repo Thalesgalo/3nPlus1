@@ -8,7 +8,7 @@ namespace Biblioteca
         {
             int cont = 0;
 
-            do
+            while (n != 1) 
             {
                 if (n % 2 == 0)
                 {
@@ -19,8 +19,7 @@ namespace Biblioteca
                     n = 3 * n + 1;
                 }
                 cont++;
-
-            }while (n != 1);
+            }
 
             return cont + 1;
         }

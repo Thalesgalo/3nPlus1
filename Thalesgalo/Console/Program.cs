@@ -1,5 +1,6 @@
 ﻿using Biblioteca;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace ConsoleApp
@@ -8,19 +9,20 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            //int n;
+            int n
+               ;
 
-            /*Console.Write("Informe o valor do numero para o teste:");
+            Console.Write("Informe o valor do numero para o teste:");
             n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Calculos.NumeroDeCiclos(n));*/
+            Console.WriteLine(Calculos.NumeroDeCiclos(n));
 
-            string EntradaDeDados = @"D:\Users\CostaTh\Leitura.txt";
-            string SaidaDeDados = @"D:\Users\CostaTh\Escrita.txt";
+            string EntradaDeDados = @"D:\GitHubRepos\3nPlus1\Thalesgalo\Leitura.txt";
+            string SaidaDeDados = @"D:\GitHubRepos\3nPlus1\Thalesgalo\Escrita.txt";
 
-            //Leitura de todas as linhas;
             try
             {
+                //Leitura de todas as linhas;
                 string[] lines = File.ReadAllLines(EntradaDeDados);
 
                 using (StreamWriter sw = new StreamWriter(SaidaDeDados))
@@ -29,20 +31,37 @@ namespace ConsoleApp
                     {
                         string[] parts = i.Split(' ');
 
-                        foreach (string i in parts)
+                        var start = Convert.ToInt32(parts[0]);
+                        var end = Convert.ToInt32(parts[1]);
+
+                        var max = 0;
+
+                        for (int j = start;  j <= end; j++)
                         {
-                            sw.WriteLine(i) ;
-                        
+                            var resultado = Calculos.NumeroDeCiclos(j);
+                            if (resultado > max)
+                            {
+                                max = resultado;
+                            }
                         }
+
+                        sw.Write(start);
+                        sw.Write(' ');
+                        sw.Write(end);
+                        sw.Write(' ');
+                        sw.Write(max);
+
+                        sw.WriteLine();
                     }
 
+                    System.Diagnostics.Process.Start("notepad.exe", SaidaDeDados);
                 }
             }
             catch
             {
                 Console.WriteLine("ERRO");
             }
-          
+
             Console.ReadKey();
         }
     }
