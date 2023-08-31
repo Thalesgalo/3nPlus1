@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Threading.Channels;
-
-namespace Biblioteca
+﻿namespace Biblioteca
 {
     public class Calculos
     {
@@ -13,7 +10,7 @@ namespace Biblioteca
             {
                 if (n % 2 == 0)
                 {
-                    n = n / 2;
+                    n /= 2;
                 }
                 else
                 {

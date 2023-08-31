@@ -14,14 +14,16 @@ namespace ConsoleApp
             Console.Write("Informe o valor do numero para o teste:");
             n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Calculos.NumeroDeCiclos(n));
+            var RF = (Calculos.NumeroDeCiclos(n));
+
+            Console.WriteLine($"O numero de ciclos que o nº: {n} faz é {RF}");
 
             string EntradaDeDados = @"D:\GitHubRepos\3nPlus1\Thalesgalo\Leitura.txt";
             string SaidaDeDados = @"D:\GitHubRepos\3nPlus1\Thalesgalo\Escrita.txt";
 
-            Console.Write(Calculos.CalculoDeSaida(EntradaDeDados, SaidaDeDados));
+            var j = (Calculos.CalculoDeSaida(EntradaDeDados, SaidaDeDados));
 
-            System.Diagnostics.Process.Start("notepad.exe", SaidaDeDados);
+            // System.Diagnostics.Process.Start("notepad.exe", SaidaDeDados);
 
             Console.ReadKey();
         }
