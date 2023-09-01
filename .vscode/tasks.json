@@ -69,6 +69,28 @@
             ],
             "problemMatcher": []
         },
+        {
+            "label": "[Projeto3nPlus1] Build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "hide": false,
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}\\Projeto3nPlus1\\Projeto3nPlus1.vbproj",
+                "-c:${config:configuration}",
+                "-property:GenerateFullPaths=true",
+                "-consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ],
     "inputs": []
 }
