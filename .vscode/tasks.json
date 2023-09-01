@@ -2,30 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "[Projeto3nPlus1] Build, Test, Generate and Open Report",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "hide": false,
-            "command": "echo Finished task \"[Projeto3nPlus1] Build, Test, Generate and Open Report\"",
-            "type": "shell",
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "[GIT] Get the last commit hash (in current branch)",
-                "[Projeto3nPlus1.Tests] Build",
-                "[Projeto3nPlus1] Run Tests",
-                "[Projeto3nPlus1] Generate Tests Report - .NET Core 3.1",
-                "[Projeto3nPlus1] Open Tests Report"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "[Projeto3nPlus1] Generate Tests Report - .NET Core 3.1",
+            "label": "[Projeto3nPlus1] Generate Tests Report",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -38,12 +15,11 @@
             "command": "reportgenerator",
             "type": "process",
             "args": [
-                "-reports:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coverage.opencover.netcoreapp3.1.xml\"",
-                "-targetdir:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragereport\"",
+                "-reports:\"${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coverage.opencover.xml\"",
+                "-targetdir:\"${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coveragereport\"",
                 "-reporttypes:Html",
-                "-historydir:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragehistory\"",
-                "-Title:\"Projeto3nPlus1 - Test report - .NET Core 3.1\"",
-                "-Tag:${input:last.commit.hash}"
+                "-historydir:\"${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coveragehistory\"",
+                "-Title:\"Projeto3nPlus1 - Test report\"",
             ],
             "problemMatcher": "$msCompile"
         },
@@ -65,12 +41,12 @@
             },
             "args": [
                 "msedge",
-                "${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragereport\\index.html"
+                "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\index.html"
             ],
             "problemMatcher": []
         },
         {
-            "label": "[Projeto3nPlus1] Build",
+            "label": "[Projeto3nPlus1.Teste] Build",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -84,13 +60,62 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}\\Projeto3nPlus1\\Projeto3nPlus1.vbproj",
+                "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\Teste.csproj",
                 "-c:${config:configuration}",
                 "-property:GenerateFullPaths=true",
                 "-consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "[Projeto3nPlus1] Build, Test, Generate and Open Report",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "hide": false,
+            "command": "echo Finished task \"[Projeto3nPlus1] Build, Test, Generate and Open Report\"",
+            "type": "shell",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "[Projeto3nPlus1.Teste] Build",
+                "[Projeto3nPlus1] Run Tests",
+                "[Projeto3nPlus1] Generate Tests Report - .NET 6",
+                "[Projeto3nPlus1] Open Tests Report"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "[Projeto3nPlus1] Run Tests",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "hide": false,
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\Teste.csproj",
+                "-v:Minimal",
+                "-c:${config:configuration}",
+                "-p:CollectCoverage=true",
+                "-p:CoverletOutputFormat=opencover",
+                "-p:CoverletOutput=${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coverage.opencover.xml",
+                "-p:ThresholdType=Branch",
+                "-p:Threshold= 0",
+                "-p:Exclude=\"\"",
+            ],
+            "problemMatcher": "$msCompile"
+        }
     ],
     "inputs": []
 }
