@@ -23,7 +23,30 @@
                 "[Projeto3nPlus1] Open Tests Report"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
+        {
+            "label": "[Projeto3nPlus1] Generate Tests Report - .NET Core 3.1",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "hide": false,
+            "command": "reportgenerator",
+            "type": "process",
+            "args": [
+                "-reports:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coverage.opencover.netcoreapp3.1.xml\"",
+                "-targetdir:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragereport\"",
+                "-reporttypes:Html",
+                "-historydir:\"${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragehistory\"",
+                "-Title:\"Projeto3nPlus1 - Test report - .NET Core 3.1\"",
+                "-Tag:${input:last.commit.hash}"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ],
     "inputs": []
 }
