@@ -47,6 +47,28 @@
             ],
             "problemMatcher": "$msCompile"
         },
+        {
+            "label": "[Projeto3nPlus1] Open Tests Report",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "hide": false,
+            "command": "start",
+            "type": "shell",
+            "windows": {
+                "command": "start"
+            },
+            "args": [
+                "msedge",
+                "${workspaceFolder}\\Projeto3nPlus1.Tests\\coveragereport\\index.html"
+            ],
+            "problemMatcher": []
+        },
     ],
     "inputs": []
 }
