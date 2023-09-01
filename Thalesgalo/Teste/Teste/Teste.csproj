@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Biblioteca\Biblioteca\Biblioteca.csproj" />
-    <ProjectReference Include="..\..\Console\ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>

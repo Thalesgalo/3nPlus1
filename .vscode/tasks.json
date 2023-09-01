@@ -41,7 +41,7 @@
             },
             "args": [
                 "msedge",
-                "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\index.html"
+                "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coveragereport\\index.html"
             ],
             "problemMatcher": []
         },
@@ -61,7 +61,7 @@
             "args": [
                 "build",
                 "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\Teste.csproj",
-                "-c:${config:configuration}",
+                "-c:Debug",
                 "-property:GenerateFullPaths=true",
                 "-consoleloggerparameters:NoSummary"
             ],
@@ -84,7 +84,7 @@
             "dependsOn": [
                 "[Projeto3nPlus1.Teste] Build",
                 "[Projeto3nPlus1] Run Tests",
-                "[Projeto3nPlus1] Generate Tests Report - .NET 6",
+                "[Projeto3nPlus1] Generate Tests Report",
                 "[Projeto3nPlus1] Open Tests Report"
             ],
             "problemMatcher": "$msCompile"
@@ -106,13 +106,10 @@
                 "test",
                 "${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\Teste.csproj",
                 "-v:Minimal",
-                "-c:${config:configuration}",
+                "-c:Debug",
                 "-p:CollectCoverage=true",
                 "-p:CoverletOutputFormat=opencover",
-                "-p:CoverletOutput=${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coverage.opencover.xml",
-                "-p:ThresholdType=Branch",
-                "-p:Threshold= 0",
-                "-p:Exclude=\"\"",
+                "-p:CoverletOutput=${workspaceFolder}\\Thalesgalo\\Teste\\Teste\\coverage.opencover.xml"
             ],
             "problemMatcher": "$msCompile"
         }
