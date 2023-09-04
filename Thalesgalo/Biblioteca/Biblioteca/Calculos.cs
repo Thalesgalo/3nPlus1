@@ -8,7 +8,12 @@ namespace Biblioteca
         {
             int cont = 0;
 
-            while (n != 1 || n < 1)
+            if (n <= 0)
+            {
+                throw new ArgumentException("Não pode ser numeros negativos");
+            }
+
+            while (n != 1)
             {
                 if (n % 2 == 0)
                 {
@@ -37,5 +42,6 @@ namespace Biblioteca
             }
             return max;
         }
+
     }
 }
